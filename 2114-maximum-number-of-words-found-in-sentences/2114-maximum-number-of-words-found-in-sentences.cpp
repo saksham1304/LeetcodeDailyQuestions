@@ -3,10 +3,10 @@
 
 class Solution {
 public:
-    int mostWordsFound(std::vector<std::string>& s) {
-        std::vector<int> lengths;
+    int mostWordsFound(vector<string>& s) {
+        vector<int> lengths;
         for (int i = 0; i < s.size(); i++) {
-            std::string str = s.at(i);
+            string str = s.at(i);
             int count = 0;
             for (int j = 0; j < str.size(); j++) {
                 if (str.at(j) == ' ') {
