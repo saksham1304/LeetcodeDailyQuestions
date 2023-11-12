@@ -3,9 +3,9 @@
 
 class Solution {
 public:
-    std::vector<int> leftRightDifference(std::vector<int>& nums) {
+    std::vector<int> leftRightDifference(vector<int>& nums) {
         int n = nums.size();
-        std::vector<int> f;
+        vector<int> f;
 
         for (int i = 0; i < n; i++) {
             int suml = 0;
@@ -21,7 +21,7 @@ public:
                 sumr += nums[k];
             }
 
-            f.push_back(std::abs(suml - sumr));
+            f.push_back(abs(suml - sumr));
         }
 
         return f;
