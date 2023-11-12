@@ -13,8 +13,8 @@ public:
             ruleIndex = 2;
         }
 
-        for (int i = 0; i < items.size(); i++) {
-            if (items[i][ruleIndex] == ruleValue) {
+        for (const auto& item : items) {
+            if (item[ruleIndex] == ruleValue) {
                 count++;
             }
         }
