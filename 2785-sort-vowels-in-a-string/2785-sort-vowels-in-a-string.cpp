@@ -4,9 +4,9 @@
 
 class Solution {
 public:
-    std::string sortVowels(std::string s) {
-        std::vector<char> vowels;
-        std::string result = s;
+    string sortVowels(string s) {
+        vector<char> vowels;
+        string result = s;
 
         for (char c : s) {
             if (isVowel(c)) {
@@ -14,7 +14,7 @@ public:
             }
         }
 
-        std::sort(vowels.begin(), vowels.end());
+        sort(vowels.begin(), vowels.end());
 
         int vowelIndex = 0;
         for (int i = 0; i < s.length(); ++i) {
