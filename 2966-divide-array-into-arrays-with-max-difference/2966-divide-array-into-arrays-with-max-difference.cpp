@@ -7,7 +7,7 @@ public:
         vector<vector<int>> result;
 
         // Sort the array
-        sort(nums.begin(), nums.end());
+       sort(nums.begin(), nums.end());
 
         // Iterate through the array in groups of 3
         for (int i = 0; i < n; i += 3) {
