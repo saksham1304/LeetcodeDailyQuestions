@@ -1,5 +1,6 @@
 #include <unordered_map>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -14,13 +15,19 @@ public:
         }
         
         // Sort characters based on their frequency in descending order
-        sort(s.begin(), s.end(), [&](char a, char b) {
-            if (charCount[a] == charCount[b]) {
-                return a < b; // If frequencies are same, sort by character order
-            }
-            return charCount[a] > charCount[b]; // Sort by frequency
+        vector<pair<char, int>> sorted_chars(charCount.begin(), charCount.end());
+        sort(sorted_chars.begin(), sorted_chars.end(), [](const pair<char, int>& a, const pair<char, int>& b) {
+            return a.second > b.second;
         });
         
-        return s;
+        // Build the sorted string
+        string sorted_string;
+        for (const auto& p : sorted_chars) {
+            sorted_string += string(p.second, p.first);
+        }
+        
+        return sorted_string;
     }
 };
+
+
