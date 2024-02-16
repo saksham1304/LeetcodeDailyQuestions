@@ -10,16 +10,16 @@ public:
             mp[num]++;
         }
         
-        std::vector<int> freq;
+        vector<int> freq;
         for (const auto& pair : mp) {
             freq.push_back(pair.second);
         }
         
-        std::sort(freq.begin(), freq.end());
+        sort(freq.begin(), freq.end());
         
         int removed = 0;
         int uniqueCount = freq.size();
-        for (int i = 0; i < freq.size(); ++i) {
+        for (int i = 0; i < freq.size(); i++) {
             if (removed + freq[i] <= k) {
                 removed += freq[i];
                 uniqueCount--;
