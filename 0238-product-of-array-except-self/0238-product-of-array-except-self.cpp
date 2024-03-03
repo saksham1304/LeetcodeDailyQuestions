@@ -2,9 +2,9 @@
 
 class Solution {
 public:
-    std::vector<int> productExceptSelf(std::vector<int>& nums) {
+    vector<int> productExceptSelf(std::vector<int>& nums) {
         int n = nums.size();
-        std::vector<int> result(n, 1);
+        vector<int> result(n, 1);
 
         // Compute the product of all elements to the left of each index
         int leftProduct = 1;
