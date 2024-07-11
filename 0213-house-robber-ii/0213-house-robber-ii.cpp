@@ -2,8 +2,6 @@
 class Solution {
 public:
     int maxnonadj(vector<int>&n){
-        if (n.empty()) return 0;  
-        if (n.size() == 1) return n[0]; 
         int prev=n[0];
         int prev2=0;
         for(int i=1;i<n.size();i++){
