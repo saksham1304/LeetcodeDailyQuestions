@@ -1,36 +1,23 @@
 class Solution {
 public:
-    
-const int mod = (int)1e9 + 7;
-
-// Function to count the number of ways to achieve the target sum
-int findWays(vector<int> &num, int tar) {
-    int n = num.size();
-
-    vector<vector<int>> dp(n, vector<int>(tar + 1, 0));
-
-    if (num[0] == 0)
-        dp[0][0] = 2;  // 2 cases - pick and not pick
-    else
-        dp[0][0] = 1;  // 1 case - not pick
-
-    if (num[0] != 0 && num[0] <= tar)
-        dp[0][num[0]] = 1;  // 1 case - pick
-
-    for (int ind = 1; ind < n; ind++) {
-        for (int target = 0; target <= tar; target++) {
-
-            int notTaken = dp[ind - 1][target];
-
-            int taken = 0;
-            if (num[ind] <= target)
-                taken = dp[ind - 1][target - num[ind]];
-
-            dp[ind][target] = (notTaken + taken) % mod;
+    int mod=(int)1e9;
+    int findWays(vector<int>&nums , int target){
+        int n=nums.size();
+        vector<vector<int>>dp(n,vector<int>(target+1,0));
+        if(nums[0]==0 )dp[0][0]=2;
+        else dp[0][0]=1;
+        if(nums[0]!=0 && nums[0]<=target)dp[0][nums[0]]=1;
+        for(int i=1;i<n;i++){
+            for(int tar=0;tar<=target;tar++){
+                int nottake=dp[i-1][tar];
+                int take=0;
+                if(nums[i]<=tar)take=dp[i-1][tar-nums[i]];
+                dp[i][tar]=(take+nottake)%mod;
+            }
         }
+        return dp[n-1][target];
     }
-    return dp[n - 1][tar];
-}
+   
     int findTargetSumWays(vector<int>& arr, int target) {
         int totSum = 0;
         int n=arr.size();
